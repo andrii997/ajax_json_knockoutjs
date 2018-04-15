@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20180124</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Forms</h1>
+			<form action="#" class="form-horizontal">
+				<div class="form-group">
+					<label for="name" class="control-label col-xs-2">name</label>
+					<div class="col-xs-10">
+						<input type="text" class="form-control" id="name">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="surname" class="control-label col-xs-2">surname</label>
+					<div class="col-xs-10">
+						<input type="text" class="form-control" id="surname">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="birth" class="control-label col-xs-2">birthday</label>
+					<div class="col-xs-10">
+						<input type="datetime-local" class="form-control" id="birth">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="bio" class="control-label col-xs-2">Bio</label>
+					<div class="col-xs-10">
+						<textarea class="form-control" id="bio" rows="3"></textarea>
+					</div>
+				</div>
+				<br>
+				<div class="col-xs-6 col-xs-push-6">
+				<button class="btn btn-primary">
+					<i class="glyphicon glyphicon-registration-mark"></i>egister
+				</button>
+				</div>
+				<br><br><br><br>
+			</form>
+
+		</div>
+	<footer>
+		<button id="btn_del">del</button>
+		<button class="btn btn-primary" id="button">Open
+			<i class="glyphicon glyphicon-hand-down"></i>
+		</button>
+
+		<ul id="out"></ul>
+
+		</ul>
+
+		<form action="#" method="post" accept-charset="utf-8" class="form" role="form" id="form_GrouP">
+			<div class="row">
+				<div class="col-xs-6 col-md-6">
+					<input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  />                        </div>
+				<div class="col-xs-6 col-md-6">
+					<input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"  />                        </div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-xs-6 col-md-6">
+					<input type="text" name="firstname" value="" class="form-control input-lg" placeholder="First Name"  />                        </div>
+				<div class="col-xs-6 col-md-6">
+					<input type="text" name="lastname" value="" class="form-control input-lg" placeholder="Last Name"  />                        </div>
+			</div>
+		</form>
+
+
+	</footer>
+
+	</div>
+</div>
+
+
+<script>
+
+function createForm() {
+    	var button = document.getElementById('button'),
+			new_File = document.getElementById('form_GrouP');
+
+
+    button.addEventListener('click', function () {
+        alert('sf');
+    });
+}
+function adddd() {
+	var nev_Form = Object.assign();
+}
+</script>
+</body>
+</html>

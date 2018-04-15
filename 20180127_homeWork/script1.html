@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap-tokenfield/dist/css/bootstrap-tokenfield.min.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap-wysiwyg/css/style.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap-datetimepicker-npm/build/css/bootstrap-datetimepicker.min.css">
+
+    <link rel="stylesheet" href="node_modules/datatables-bootstrap/css/dataTables.bootstrap.css">
+
+    <link rel="stylesheet" href="node_modules/datatables/media/css/jquery.dataTables.css">
+
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.css">
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <small><a href="#">Return_book</a></small>
+                <h1>Some article</h1>
+            </div>
+            <form action="#" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-xs-10 col-xs-push-1">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" value="" class="form-control" placeholder="Yout title"/>
+                    </div>
+                    <br><br><br><br>
+
+                    <div class="col-xs-4 col-xs-push-1">
+                        <input type="text" class="form-control" id="tokenfield" value="red,blue,yellow"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form_datetime" class="control-label col-xs-2">Publish date</label>
+                        <div class="input-group date col-xs-5" id='datetimepicker'>
+                            <input type="text" value="2018-01-28 21:45" readonly class="form-control" id="form_datetime">
+                            <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-xs-12 col-xs-push-1">
+                        <label for="chec">Published</label>
+                        <input type="checkbox" id="chec" name="my-checkbox" data-indeterminate>
+                    </div>
+                    </div>
+            </form>
+                <div class="col-xs-10 col-xs-push-1">
+                    <h4>Content</h4>
+                    <textarea name="textar" id="area" cols="30" rows="10"></textarea>
+                    <button type="submit" class="btn btn-primary" id="save_change">
+                        <i class="glyphicon glyphicon-floppy-saved"></i>
+                        Save changes</button>
+                </div>
+            <br><br>
+
+
+
+
+            <div class="col-xs-3 col-xs-push-1">
+                <label for="sel">Recomendations</label>
+            </div>
+
+                    <select name="sel" class="col-xs-6" id="sel">
+                        <option>Lorem ipsum.</option>
+                        <option>Dolor, libero!</option>
+                        <option>Est, illum.</option>
+                        <option>Animi, quo!</option>
+                        <option>Magni, perspiciatis!</option>
+                    </select>
+            <button type="submit" class="btn btn-primary" id="sub_mit">
+                <i class="glyphicon glyphicon-pushpin"></i>Submit</button>
+            </button>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="col-xs-10 col-xs-push-1">
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Start date</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Start date</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+            <td>Tiger Nixon</td>
+            <td>System Architect</td>
+            <td>2017/04/25</td>
+        </tr>
+        <tr>
+            <td>Garrett Winters</td>
+            <td>Accountant</td>
+            <td>2017/07/25</td>
+        </tr>
+        <tr>
+            <td>Ashton Cox</td>
+            <td>Junior Technical Author</td>
+            <td>2018/01/12</td>
+        </tr>
+        <tr>
+            <td>Cedric Kelly</td>
+            <td>Senior Javascript Developer</td>
+            <td>2017/03/29</td>
+        </tr>
+        <tr>
+            <td>Airi Satou</td>
+            <td>Accountant</td>
+            <td>2018/01/28</td>
+        </tr>
+        <tr>
+            <td>Brielle Williamson</td>
+            <td>Integration Specialist</td>
+            <td>2017/12/02</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <button class="btn btn-primary" id="cl_button">
+        <i class="glyphicon glyphicon-pushpin"></i>click_console</button>
+    </button>
+</div>
+
+
+
+
+
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="node_modules/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+
+<script src="node_modules/select2/dist/js/select2.min.js"></script>
+
+<script src="node_modules/bootstrap-tokenfield/dist/bootstrap-tokenfield.js"></script>
+
+<script src="node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+
+<script src="node_modules/bootstrap-datetimepicker-npm/build/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="node_modules/datatables/media/js/jquery.dataTables.js"></script>
+
+<script src="node_modules/toastr/build/toastr.min.js"></script>
+
+
+<script>
+
+    $(document).ready(function() {
+        $('#example').DataTable();
+        $('#save_change').on('click', function () {
+            toastr.success('Your changes are saved!');
+        });
+        $('#sub_mit').on('click', function () {
+            toastr.success('Your article has been added.', 'Thanks!', {timeOut: 5000});
+        });
+        $('#sub_mit').hover(function() {
+            toastr.info('Save the changes please');
+        });
+    } );
+    $("[name='my-checkbox']").bootstrapSwitch();
+    $('#tokenfield').tokenfield({
+        autocomplete: {
+            source: ['red','blue','green','yellow'],
+            delay: 100
+        },
+        showAutocompleteOnFocus: true
+    });
+
+    $("#form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+
+</script>
+
+<script>
+    var counter = 0;
+    $('select').select2({
+        tempalteResult: function (state) {
+            if(!state.id) {
+                return state.text;
+            }
+            return $wrappedText;
+        }
+    });
+</script>
+
+<script>
+
+    var button = document.getElementById('cl_button'),
+        Title = document.getElementById('title'),
+//        token = document.getElementById('tokenfild'),
+        Published = document.getElementById('chec'),
+        Publish_date = document.getElementById('form_datetime'),
+        Recomendations = document.getElementById('sel');
+
+    button.onclick = function () {
+        var
+            inputText = Title.value,
+//            tokenFild = token.value,
+            inputChec = Published.checked,
+            publishDat = Publish_date.value,
+            recom_Input = Recomendations.value;
+        var Car = function() {
+
+        };
+
+        var myCar = new Car();
+        myCar.Title = inputText;
+//        myCar.token = tokenFild;
+        myCar.Published = inputChec;
+        myCar.Publish_date = publishDat;
+        myCar.Recomendations = recom_Input;
+//        myCar.date = new Date();
+        console.log(myCar);
+        Title.value = "";
+    };
+
+
+
+
+</script>
+
+</body>
+</html>

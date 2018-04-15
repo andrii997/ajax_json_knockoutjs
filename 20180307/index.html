@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="col-xs-12">
+        <h1 class="page-header">Local storage</h1>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <form action="#">
+                <div class="form-group">
+                    <label for="key" class="control-label">Key</label>
+                    <input type="text" class="form-control" id="key" data-bind="value: key">
+                </div>
+
+                <div class="form-group">
+                    <label for="value" class="control-label">Value</label>
+                    <input type="text" class="form-control" id="value"  data-bind="value: value">
+                </div>
+
+                <button class="btn btn-primary" data-bind="click: saveItem">Save</button>
+                <button class="btn btn-danger">Remove</button>
+            </form>
+        </div>
+        <div class="col-xs-8">
+            <ul class="list-group" data-bind="foreach: items">
+                <li class="list-group-item" data-bind="click: $root.removeItem">
+                    <h3 class="list-group-item-heading" data-bind="text: key">Item-1</h3>
+                    <p data-bind="text: value">Item-2</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/node_modules/knockout/build/output/knockout-latest.js"></script>
+
+
+<script>
+    var vm = {
+        key: ko.observable(""),
+        value: ko.observable(""),
+        items: ko.observableArray([]),
+
+        saveItem: function () {
+            localStorage.setItem(vm.key(), vm.value());
+
+            vm.resetForm();
+            vm.readFromLocalStorage();
+        },
+
+        removeItem: function () {
+            vm.items.remove(item);
+            localStorage.setItem("items", JSON.stringify(vm.items()));
+            vm.resetForm();
+            vm.readFromLocalStorage();
+        },
+
+        resetForm: function () {
+            vm.key("");
+            vm.value("");
+        },
+
+        readFromLocalStorage: function () {
+            var data = [];
+
+            for (var key in localStorage) {
+                if(localStorage.hasOwnProperty(key)) {
+
+                    var value = localStorage.getItem(key);
+                    data.push({
+                        key: key,
+                        value: value
+                    });
+                }
+
+            }
+            vm.items(data);
+        }
+    };
+
+
+    window.addEventListener("storage", function (e) {
+        console.log("Key=" + e.key + ", newValue=" + e.newValue + ", oldValue=" + e.oldValue);
+        vm.readFromLocalStorage();
+    });
+
+    vm.readFromLocalStorage();
+    ko.applyBindings(vm);
+</script>
+</body>
+</html>

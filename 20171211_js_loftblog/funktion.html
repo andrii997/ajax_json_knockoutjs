@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    function plus (number1, number2) {
+       return number1 + number2;
+    }
+    function minus (num1, num2) {
+        return num1 - num2;
+    }
+    var first_number = +prompt("enter first number");
+    var second_number = +prompt("enter second number");
+    var operand = prompt("enter operand");
+    var result;
+    if (operand=="+") {
+        result = plus(first_number, second_number);
+    }
+    if (operand=="-") {
+        result = minus(first_number, second_number);
+    }
+    console.log(result);
+    function threed (operand, first, second) {
+
+        if (operand=="+") {
+            return plus(first, second);
+        } if (operand=="-") {
+            return minus(first, second);
+        }
+    }
+    var result = threed(operand, first_number, second_number);
+    console.log(result);
+</script>
+
+</body>
+</html>

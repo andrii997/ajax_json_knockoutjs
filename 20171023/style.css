@@ -1,0 +1,64 @@
+ /*p[data-attr=value] {
+
+ }
+
+p {
+	color: grey !important;+1000
+
+}
+
+p.cls1 {
+	color: red;
+
+}
+
+p#element-p {
+	color: green;
+}
+
+p span {
+	font-size: 10px;
+}
+
+p > span {
+	font-size: 24px;
+}
+span > span {
+	font-size: 18px;
+	color: #ff3;
+}
+*/
+
+body {
+	font-size: 16px;
+	color: grey;
+}
+.back {
+	background-image: url(logo.png);
+}
+p {
+	text-align: justify;
+}
+p:first-letter {
+	color: #ff3;
+}
+
+p:first-line {
+	font-size: 32px;
+}
+.strr {
+	font-variant: small-caps;
+	text-decoration: underline;
+	color: red;
+
+}
+.emm {
+	color: red;
+	text-transform: uppercase;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	color: green;
+}

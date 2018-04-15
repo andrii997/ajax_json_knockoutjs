@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="input">
+<button id="button">add</button>
+<button id="btn_del">del</button>
+
+<ul id="out"></ul>
+
+<script>
+    var button = document.getElementById('button'),
+        btn_del = document.getElementById('btn_del'),
+        input = document.getElementById('input'),
+        out = document.getElementById('out');
+
+    button.onclick = function () {
+        var inputText = input.value;
+            if (!inputText.trim()) {
+                alert("Заповніть форму!");
+                return;
+            }
+        var li = document.createElement('li'),
+            textCreate = document.createTextNode(inputText);
+
+            li.appendChild(textCreate);
+            out.appendChild(li);
+            input.value = "";
+
+
+        btn_del.onclick = function () {
+            li.parentNode.removeChild(li);
+        }
+    };
+
+</script>
+</body>
+</html>

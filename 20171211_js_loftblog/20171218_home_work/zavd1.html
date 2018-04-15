@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    //    напиши функцию pluck, которая берет массив объектов и возвращает
+    //    массив значений определенного поля:
+    //
+    //        var characters = [
+    //            { 'name': 'barney', 'age': 36 },
+    //            { 'name': 'fred', 'age': 40 }
+    //        ];
+    //
+    //    console.log(pluck(characters, 'name')); // ['barney', 'fred']
+
+
+    var a = [
+        { 'name': 'barney', 'age': 36 },
+        { 'name': 'jack', 'age': 45 },
+        { 'name': 'fred', 'age': 40 }
+    ];
+var b = [];
+    function filed(pole) {
+        for(i=0; i < a.length; i++) {
+            if(a[i][pole]) {
+                b.push(a[i][pole])
+            }
+        }
+        return b;
+    }
+
+    console.log(filed(prompt('enter pole')));
+
+
+
+
+//    var characters = [
+//        { 'name': 'barney', 'age': 36 },
+//        { 'name': 'jack', 'age': 45 },
+//        { 'name': 'fred', 'age': 40 }
+//    ];
+//    var arr [];
+//    function getPropertyNames(characters, a) {
+//        if (a === undefined) a = []; // якщо масив не визначено створити новий
+//        for(var property in characters) a.push(property);
+//        return a;
+//    }
+//    var a = getPropertyNames(characters); // получити свойства обєкта в новому масиві
+//    getPropertyNames(characters,a); // добавити свойства в об'єкт
+//
+//    console.log(a);
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <ul class="Menu">
+        <li class="Menu-item">sdgdg</li>
+        <li class="Menu-item">sdsds222</li>
+    </ul>
+</div>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    (function ($) {
+    })(jQuery);
+
+
+    $('#root')//Знайти елемент (працює як qwerySelectorAll)
+    $('#root > ul.Menu > li.Menu-item').attr('data-id');//записати щос в переміну другим параметром або зчитати без другого параметру
+    $('#root > ul.Menu > li.Menu-item').hasClass('Menu');//hasClass перевіряє чи є такий класс і повертує тру або фолсе
+    $('#root > ul.Menu > li.Menu-item').addClass('Menu');//add class
+    $('#root > ul.Menu > li.Menu-item').removeClass('Menu');//delete class
+    $('#root > ul.Menu > li.Menu-item').toggle('Menu', true);//true-add_calss false_delete class
+    var $cl = $('<div class="classss"><li>eto li</li> </div>');//створимо div і в середині li(в памяті буде а в dom ні)
+    $cl[0];//получимо самий елемент
+    document.body.appendChild($cl[0]);//добавляєм $cl в dom(через js без jQ)
+    $('body').append($cl);//вобавлення в розмітку через jQ
+    $('body').remove($cl);//delete in dom jQ
+    $('body').prepend($cl);//add $cl na pochatok
+    $cl.remove();//delete in dom jQ
+    $cl.text('fdg');//записує в елемент (якшо нічого не передали то зчитує)
+    $cl.html('<strong>tyt byde strong</strong>');//добавити html розмітку
+    $cl.html();//зчитує html розмітку
+    $cl.empty();//очищує весь внутрішній контент
+    $('body > *').each(function () {
+        console.dir(arguments);
+    })//поверне arguments в якому будуть теги які є в боді
+
+    $('body > *').each(function () {
+        console.log(arguments, this);
+    })//поверне поверне arguments в якому будуть теги які є в
+    // боді зі значеннями тегів (this елемент на якому знаходимся)
+
+
+
+</script>
+</body>
+</html>

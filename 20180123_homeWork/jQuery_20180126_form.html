@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <ul class="Menu">
+        <li class="Menu-item">sdgdg</li>
+        <li class="Menu-item">sdsds222</li>
+    </ul>
+</div>
+
+<label>
+
+    <input type="text" name="text" id="text">
+    <button type="button">add</button>
+    to start&
+    <input type="checkbox" name="toStart" id="toStart">
+
+</label>
+
+<ul id="ull"></ul>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    (function ($) {
+        var
+            $btn = $('button'),
+            $text = $(':text'),
+            $addToStart = $(':checkbox'),
+            $output = $('#ull');
+
+        $btn.click(function (e) {
+            var content = $text.val(),//записуєм значення поля $text в переміну content
+                $li = $('<li/>');//створюєм новий тег
+
+            $li.text(content);//записуєм в створений тег значення з content
+
+            $addToStart.is(':checked') // перевірка на checked і добавлення в початок/кінець
+                ? $output.append($li)
+                : $output.prepend($li);
+
+            $text.text("");//очищення поля для вводу
+        })
+
+    })(jQuery);
+//$el.text('Text');//запише текст в документ
+//    $el.click(function () {
+//        console.log(this)
+//    }); // поверне значення ніби клікнули по тексті
+//    $el.click();//поверне де був клік(виведе елемент)
+//    $('strong', $el);//знайде стронг в $el(в чому шукати)
+//    $('strong');//якщо не передати контекст то буде результат
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

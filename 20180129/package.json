@@ -1,0 +1,12 @@
+{
+  "name": "20180123_homeWork",
+  "version": "0.0.1",
+  "desk": null,
+  "dependencies": {
+    "3": "^2.0.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-switch": "^3.3.4",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.3.1"
+  }
+}

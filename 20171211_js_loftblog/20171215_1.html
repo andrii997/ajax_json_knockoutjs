@@ -1,0 +1,15 @@
+<script>
+    function askName(cb) {
+        var name = prompt('Enter your name');
+        setTimeout(function () {
+            cb(name);
+        }, 1000);
+    }
+    function printName(n) {
+        alert(n);
+    }
+
+    askName(printName);
+
+
+</script>

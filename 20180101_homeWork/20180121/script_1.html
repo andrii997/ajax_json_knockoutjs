@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .Modal {
+        position: absolute;
+        display: none;
+    }
+    .Modal.is-opened {
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .Modal-shadow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .5);
+    }
+    .Modal-content {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+    }
+</style>
+<body>
+<a href="#" class="Link">Open window</a>
+<div class="Modal is-opened">
+    <div class="Modal-shadow"></div>
+    <div class="Modal-content">
+        <button class="Button">Click me</button>
+    </div>
+</div>
+
+
+<script>
+
+    var modalWindow = document.querySelector('.Modal'),
+        openModal = document.querySelector('.Link'),
+        modalContent = document.querySelector('.Modal-content'),
+    modal_opened_cls = 'is-opened';
+
+    openModalBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        modalWindow.classList.add(modal_opened_cls);
+    });
+
+    modalContent.addEventListener('click', function () {
+       e.stopPropagation();
+    });
+
+    window.addEventListener('click', function (e) {
+        var window = document.querySelectorAll('.Modal.' + modal_opened_cls);
+        for (var index = 0; index < windows.length; index++) {
+            wnd.classList.remove(modal_opened_cls);
+        }
+    });
+
+
+</script>
+</body>
+</html>

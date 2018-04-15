@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>backwards with delay</title>
+</head>
+<body>
+	<style>
+		body {
+			padding: 15px;
+			text-align: center;
+		}
+
+		@keyframes myAnim {
+			
+			from {
+				background-color: blue;
+			}
+
+			to {
+				background-color: pink;
+				transform: translateX(500px) scale(.5);
+			}
+			
+		}
+
+		@keyframes reset {
+
+			50% {
+				background-color: white;
+			}
+			
+			to {
+				background-color: red;
+			}
+			
+		}
+
+		.ball {
+			width: 200px;
+			height: 200px;
+			background: red;
+			border-radius: 50%;
+		}
+
+		.doAnim {
+			animation: myAnim 2s backwards 1s;
+		}
+
+		.reset {
+			animation: reset .5s;
+		}
+
+		button {
+			margin: 50px 20px;
+		}
+
+		.p {
+			padding-top: 100px;
+		}
+	</style>
+	<h2>backwards with delay</h2>
+
+	<div class="ball"></div>
+
+	<button>START THE ANIMATION</button>
+
+	<button>RESET THE ANIMATION</button>
+
+	<script>
+		var start = document.querySelectorAll('button')[0],
+		reset = document.querySelectorAll('button')[1],
+		ball = document.querySelector('.ball');
+
+		start.addEventListener('click', function () {
+			ball.classList.add('doAnim');
+			ball.classList.remove('reset');
+		}, false);
+
+		reset.addEventListener('click', function () {
+			ball.classList.remove('doAnim');
+			ball.classList.add('reset');
+		}, false);
+	</script>
+</body>
+</html>

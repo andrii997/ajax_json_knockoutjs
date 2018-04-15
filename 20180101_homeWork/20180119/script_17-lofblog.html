@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<div>
+    <p id="wrapped">div_5</p>
+</div>
+
+
+<script>
+
+    var elem = document.createElement('p'), //узел елемента
+        //content = document.createTextNode('<strong>динімічно створений елемент'), //узел текстовий
+        wrappedP = document.getElementById('wrapped');
+
+    elem.innerHTML = '<strong>динімічно створений елемент</strong>'; //добавлення тегів html для динамічно створеного елемента
+
+    //wrappedP.parentNode.removeChild(elem);
+    wrappedP.parentNode.removeChild(wrappedP);
+    //elem.appendChild(content);
+    //elem.setAttribute('id', 'name_id');//добавити елементу(id,class(name))
+    elem.id = 'mrDynamic';//добавлення id
+
+    //wrappedP.parentNode.appendChild(elem);
+    //wrappedP.parentNode.insertBefore(elem, wrappedP);//елемент який вставити і елемент перед яким вставивти
+
+    wrappedP.parentNode.replaceChild(elem, wrappedP); // замінити wrapped na elem
+    console.log(elem);
+
+</script>
+</body>
+</html>

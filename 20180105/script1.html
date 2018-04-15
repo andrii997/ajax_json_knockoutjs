@@ -1,0 +1,66 @@
+<!--Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(),-->
+<!--который параметром принимает строку, а возвращает ее в перевернутом виде,-->
+<!--метод ucFirst(), который параметром принимает строку, а возвращает эту же строку,-->
+<!--сделав ее первую букву заглавной и метод ucWords, который принимает строку и делает-->
+<!--заглавной первую букву каждого слова этой строки.-->
+
+<!--Наш класс должен работать так:-->
+
+<!--var str = new MyString();-->
+
+<!--console.log(str.reverse('abcde')); //выведет 'edcba'-->
+<!--console.log(str.ucFirst('abcde')); //выведет 'Abcde'-->
+<!--console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+
+var MyString = function (str) {
+    this.str = str.split("").reverse().join("");
+
+    this.ucFirst = function ucfirst(ucFirst) {
+
+        var first = ucFirst.charAt(0).toUpperCase();
+        return first + ucFirst.substr(1, ucFirst.length-1);
+    };
+    this.ucWords = str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+        return letter.toUpperCase();
+    });
+};
+var str = new MyString('abcde abcde zedcda');
+console.log(str.str);
+console.log(str.ucFirst('abcde'));
+console.log(str.ucWords);
+
+
+
+
+//    function reverseString(str) {
+//        return str.split("").reverse().join("");
+//    }
+//    var abc = prompt('reverse');
+//    console.log(reverseString(abcde));
+//
+//    function ucfirst(str) {
+//
+//        var first = str.charAt(0).toUpperCase();
+//        return first + str.substr(1, str.length-1);
+//    }
+//    var uFirst = prompt('метод ucFirst');
+//    console.log(ucfirst(uFirst));
+
+//    var str1 = "abcde abcde abcde";
+//    str1 = str1.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+//        return letter.toUpperCase();
+//    });
+//    console.log(str1);
+
+
+</script>
+</body>
+</html>

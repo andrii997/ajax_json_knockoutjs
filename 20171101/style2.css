@@ -1,0 +1,106 @@
+html, body {
+	margin: 0;
+	font-size: 16px;
+	font-family: sans-serif;
+	height: 100%;
+}
+
+#wrapper {
+	min-height: 100%;
+	background: #36e;
+	margin-bottom: -100px;
+} 
+
+#header {
+	height: 100px;
+	background: url(fullsize.jpg);
+}
+
+.outer {
+	height: 100px;
+	font-size: 0;
+}
+
+.outer:before {
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	font-size: 0;
+}
+
+.menu-container {
+	display: inline-block;
+	width: 100%;
+}
+.outer:before {
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	font-size: 0;
+	content: '';
+}
+
+.outer:before,
+.menu-container {
+	vertical-align: middle;
+}
+
+.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 0;/*для того щою забрати відступи без мінусових мергенів*/
+	/*border: 1px solid;*/
+	text-align: justify;
+}
+.menu:after {
+	content: '';
+	display: inline-block;
+	width: 100%;
+}
+.menu-item {
+	display: inline-block;
+	font-size: 16px;/*задаєм розмір шрифта щоб не було відступів*/
+	width: 100px;
+	height: 25px;
+	border: 2px solid #fff;
+	color: #fff;
+	text-transform: uppercase;
+}
+.menu-item a {
+	text-decoration: none;
+}
+.menu-item:hover {
+
+	background: #fff;
+	color: black;
+}
+
+#wrapper:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#sidebar {
+	background: #e96;
+	width: 300px;
+	float: left;
+}
+
+#content-wrapper {
+	background: #5e9;
+	padding-bottom: 100px;
+	margin-left: 300px;
+}
+
+#content {
+	background: #9e3;
+}
+
+#footer {
+	height: 100px;
+	background: #ec3;
+	clear: both;
+}
+

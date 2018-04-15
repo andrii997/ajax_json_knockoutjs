@@ -1,0 +1,63 @@
+html, body {
+	background: #fefefe;
+	font-size: 24px;
+	margin: 0;
+	font-family: "Segoe UI Light";
+	color: #222;
+	width: 800px;
+	margin: 0 auto;
+}
+h1, h2, h3 {
+	color: #333;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+h2 {
+	font-size: 1.5em;
+}
+
+.clip {
+	padding: 20px;
+	border: 20px dotted #333;
+	background: #33d;
+	margin: 20px;
+}
+.clip.border {
+	background-clip: border-box;
+}
+.clip.padding {
+	background-clip: padding-box;
+}
+.clip.content {
+	background-clip: content-box;
+}
+
+.origin {
+	padding: 20px;
+	border: 20px dotted #333;
+	background: url("https://placehold.it/200x200") no-repeat;
+	margin: 20px;
+}
+
+.origin1 {
+	background-origin: border-box;
+}
+.origin2 {
+	background-origin: padding-box;
+}
+.origin3 {
+	background-origin: content-box;
+}
+
+.size {
+	padding: 20px;
+	border: 20px dotted #333;
+	background: url("https://placehold.it/200x200") no-repeat;
+	background-size: 300px 500px;
+	margin: 20px;
+	height: 500px;
+	width: 100%;
+}

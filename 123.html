@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Generator() {}
+		Generator.prototype.nextNumber = function () {
+			return Math.random() * 10;
+		};
+
+		function Calculator() {
+
+		}
+		Calculator.prototype = Object.create(Generator.prototype);
+
+		Calculator.prototype.add = function() {
+			var sum = 0;
+			for (var i = 0; i < arguments.length; i++) {
+				sum += arguments[i]
+			}
+			return sum;
+		};
+		var calc = new Calculator();
+		var num1 = calc.nextNumber();
+		var num2 = calc.nextNumber();
+
+		var sum = calc.add(num1, num2);
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+		var Man = function (name) {
+			this.name = name;
+			this.canSpeak = true;
+		};
+
+var vanya = newMan('Ваня');
+
+console.log(vanya.name);
+console.log(vanya.canSpeak);
+
+
+
+//factorial *******---********
+
+function factorialize(num) {
+  var r = 1;
+  for (var i = 2; i<= num; ++i)
+    r *= i;
+  return r;
+}
+
+factorialize(5);
+
+
+
+function Generator() {
+}
+
+Generator.prototype.nextNumber = function () {
+  return Math.random() * 10;
+};
+
+function Calculator() {
+}
+Calculator.prototype = Object.create(Generator.prototype);
+Calculator.prototype.add = function () {
+    var sum = 0;
+    for(var i = 0; i < arguments.length; i++) {
+        sum += arguments[i]
+    }
+    return sum;
+};
+
+var calc = new Calculator();
+var num1 = calc.nextNumber();
+var num2 = calc.nextNumber();
+
+var sum = calc.add(num1, num2);
+
+	</script>
+</body>
+</html>

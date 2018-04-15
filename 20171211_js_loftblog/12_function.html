@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function funcDec (a, b) {
+        return a + b;
+    }
+    console.log( funcDec(3,4 ));
+
+    var funcExp = function (a, b) {
+    return a + b;
+    };
+console.log(funcExp(2,3));
+
+
+function func11() {
+    function funcExample() {
+        return 'one'
+    }
+    return funcExample();
+
+    function funcExample() {
+        return 'two'
+    }
+}
+//console.log(func11());  //перезапис і повернення two на відміну від funcExp
+
+
+    function func2() {
+        var funcExample = function () {
+            return 'one'
+        };
+        return funcExample();
+
+        var funcExample = function () {
+            return 'two'
+        }
+    }
+//    console.log(func2());  //повернення one на відміну від funcDec
+
+    //*********функції зворотнього виклику*********//повертається після якоїсь відповіді(від сервера)
+
+    var func = function (callback) {
+        var name = "Nick";
+        return callback(name);
+    };
+
+    console.log(func(function (n) {
+        return 'Hello' + n;
+    }) );
+
+//повернення функції
+
+var  func1 = function () {
+    return function () {
+        console.log('Helloooo!!!');
+    };
+};
+
+    func1()();
+
+//анонімна самовизивающа функція
+
+    (function () {
+        var prop2 = 2;  //ховаєм код від глобальної видимості
+//        console.log('hello vid анонімна самовизивающа функція!!')
+    })();
+
+//    console.log(prop2);  //перевірка чи буде видно поза функцією(помилка!!!)
+
+
+var funcArgs = function (a,b,c) {  //функції які приймають необмежену кількість параметрів
+    var  i,
+        sum = 0;
+    for (i=0; i < arguments.length; i++) {
+        sum += arguments[i];
+    };
+
+    return sum;
+};
+
+console.log(funcArgs(1,2,3));
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

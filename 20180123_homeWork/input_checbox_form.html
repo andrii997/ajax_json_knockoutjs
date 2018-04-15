@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>
+    <input type="checkbox" id="one" onchange="fun1()">
+    Ви згыдны з умовами?
+</label>
+
+<!--<input type="radio" name="r1" value="1">0-->
+<!--<input type="radio" name="r1" value="2">1-->
+<!--<input type="radio" name="r1" value="3">2-->
+<!--<button onclick="fun2()">provirka yakuy element vibran</button>-->
+
+<script>
+    function fun1() {
+        var chbox = document.getElementById('one');
+
+        if(chbox.checked) {
+            alert('Vibran');
+        }
+        else
+        {
+            alert('Ne vibran');
+        }
+    }
+
+//function fun2() {
+//    var radioBtn = document.getElementsByName('r1');
+//    for (var i = 0; i < radioBtn.length; i++) {
+//        if (radioBtn[i].checked) {
+//            alert('vibran' + i + 'element');
+//        }
+//        }
+//}
+
+
+
+
+</script>
+</body>
+</html>

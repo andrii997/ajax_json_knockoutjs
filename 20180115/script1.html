@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum eligendi
+    iure magnam molestiae nam quas, ratione ullam voluptate! Ab eos et ipsum, iusto
+    minus, mollitia nulla obcaecati officia, omnis rem sit temporibus! Aliquid atque
+    deserunt, dicta dolor doloribus ea eaque iurelaudantium nam, officia perferendis
+    quibusdam, repellendus reprehenderit voluptatem?</p>
+<button id="btn">Open window</button>
+<button id="moveBy">moveBy</button>
+<button id="btn2">navigator</button>
+<button id="btn3">btn-Print</button>
+<button id="btn4">resizeTo</button>
+<button id="btn5">resizeBy</button>
+<button id="btn6">btn-6</button>
+<button id="btn7">btn-7</button>
+<button id="btn8">close_window</button><br><br>
+
+<button onclick="scrollWin(250, 250)">Scroll down</button><br><br>
+
+<button onclick="scrollWin(100, 0)">Scroll left</button><br><br>
+
+<button onclick="myFunction()">blur_setTimeout</button>
+<style>
+    body {
+        width: 2500px;
+        height: 2500px;
+    }
+</style>
+
+<script>
+//    var child = open('', '','width=200, height=200');
+//    child.moveTo(200, 200);
+
+    var btn = document.getElementById('btn'),
+        btn2 = document.getElementById('btn2'),
+        btn3 = document.getElementById('btn3'),
+        btn4 = document.getElementById('btn4'),
+        btn5 = document.getElementById('btn5'),
+        btn6 = document.getElementById('btn6'),
+        btn7 = document.getElementById('btn7'),
+        moveBtn = document.getElementById('moveBy'),
+        windowHandle, winNavigator, myWindow;
+
+    btn.onclick = function () {
+        windowHandle = open('', '', 'width=400,height=400');
+        windowHandle.document.write('hello child window ' +
+             windowHandle.navigator.appName + ' ' + windowHandle.navigator.appVersion);
+        windowHandle.document.writeln('<h2>Тест JavaScript друк.</h2>')
+    };
+    moveBtn.onclick = function () {
+      windowHandle.scrollBy(100, 0);
+    };
+    btn2.onclick = function () {
+        winNavigator = windowHandle.navigator;
+    };
+    btn3.onclick = function () {
+        windowHandle.print('info for brauser' + windowHandle.navigator.appName + '!');
+};
+
+    btn4.onclick = function () {
+        windowHandle.resizeTo(500, 500);
+        windowHandle.focus();
+    };
+
+    btn5.onclick = function () {
+        windowHandle.resizeBy(-100, -100);
+        windowHandle.focus();
+    };
+
+    btn6.onclick = function () {
+        windowHandle.scrollBy(100, 500);
+    };
+
+
+    btn7.onclick = function () {
+        windowHandle.scrollTo(100, 100);
+    };
+
+
+
+    btn8.onclick = function () {
+        windowHandle.close();
+    };
+
+    function scrollWin(x, y) {
+        window.scrollBy(x, y);
+    }
+
+    function myFunction() {
+        myWindow = window.open("", "", "width=500,height=300");
+        myWindow.document.write("<p>A new window!</p>");
+        myWindow.blur();
+        setTimeout(function(){ myWindow.close() }, 3000);
+}
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

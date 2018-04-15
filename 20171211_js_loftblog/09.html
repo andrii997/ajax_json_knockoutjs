@@ -1,0 +1,45 @@
+<script>
+    var obj = {
+        qwerty : 'str',
+        func : function () {
+            console.log(this.qwerty);
+        }
+    };
+
+//    console.log(typeof obj.qwerty); //string якщо взяти не існуюче свойство то получим undefined
+//
+//    console.log( obj.fff || 'name' );
+//
+//    obj.ddd = 'Gag g';  // {qwerty: "str", func: ƒ, ddd: "Gag g"}
+obj.qwerty ='Banan';//{qwerty: "Banan", func: ƒ, ddd: "Gag g"}
+//
+//    console.log( obj);
+//
+//    var a = {prop: 1}, b = {prop: 2}, c = {prop: 3};
+//
+//    a = b = c = {prop: 'allTheSame'};
+//
+//    console.log(a,b,c); //{prop: 1} {prop: 2} {prop: 3}
+//
+//    var y = obj;
+//    console.log(y.qwerty); //Banan
+//
+//    delete obj.func;
+//    console.log(obj); //{qwerty: "Banan", ddd: "Gag g"}
+
+    obj.func(); //Banan (визов на 5 стрічці)
+
+    var MYAPP = {
+
+    }; //глобальні переміни
+
+
+
+
+
+
+
+
+
+
+</script>

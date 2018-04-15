@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/admin-article-list-page.css">
+    <link rel="stylesheet" href="css/admin-article-page-for-edit.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
+    <title>Admin articles pages</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse">
+        <div class="container-inv">
+            <div class="navbar-header">
+                <a class="navbar-brand header__logo" href="#">
+                    <img src="img/logoImg.png" class="logoImg">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li data-bind="css: { active: !emptyForm() }">
+                        <a class="text__header" href="#" data-bind="click: closeForm">Мої статті</a>
+                    </li>
+                    <li data-bind="visible: emptyForm, css: { active: emptyForm }">
+                        <a class="text__header" href="#">Створення/редагування статті</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="header__photoBlock">
+                        <img src="img/userImg-200x200.jpg" class="img-thumbnail header-img-thumbnail--style">
+                    </li>
+                    <li class="disabled">
+                        <a href="#" data-bind="text: authorName"></a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8081/public-articles-pages.html"><span
+                                class="glyphicon glyphicon-off"></span> Вийти</a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div data-bind="visible: !emptyForm()">
+        <div class="page-header">
+            <h1 class="page-header--title">Панель керування статтями
+                <small class="pull-right page-header--create">Створити
+                    <a href="#" data-bind="click: pressBtnToCreate">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </small>
+            </h1>
+        </div>
+        <main>
+            <div class="panel panel-default panel-default--style">
+                <div class="panel-heading">
+                    <div class="row panel-heading--style">
+                        <div class="col-xs-12 col-sm-3 panel-heading--text">Постер</div>
+                        <div class="col-xs-12 col-sm-3 panel-heading--text">Заголовок</div>
+                        <div class="col-xs-12 col-sm-4 panel-heading--text">Короткий опис</div>
+                        <div class="col-xs-12 col-sm-2 panel-heading--text">Керування</div>
+                    </div>
+                </div>
+                <div class="panel-body" data-bind="foreach: authorArticles()">
+                    <div class="row panel-body--style" data-bind="click: $parent.chosenArticle,
+                                                        css: { articleListStyle: $parent.selectedArticle() && $parent.selectedArticle() === $data }">
+                        <div class="col-xs-12 col-sm-3 panel-body--text">
+                            <img class="panel-body--poster" data-bind="attr: { src: thumbnail }">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 panel-body--text" data-bind="text: title"></div>
+                        <div class="col-xs-12 col-sm-4 panel-body--text" data-bind="text: shortContent"></div>
+                        <div class="col-xs-12 col-sm-2 panel-body--text">
+                            <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                                <button type="button" class="btn btn-warning"
+                                        data-bind="click: $parent.pressBtnToEdit,
+                                        enable: $parent.selectedArticle() && $parent.selectedArticle().id === $data.id">
+                                    Редагувати
+                                </button>
+                                <button type="button" class="btn btn-danger" data-bind="click: $parent.removeArticle,
+                                                                                        enable: $parent.selectedArticle() && $parent.selectedArticle().id === $data.id"
+                                >
+                                    <span class="glyphicon glyphicon-trash"></span> Видалити
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <nav aria-label="Page navigation navigation--style">
+                        <ul class="pagination pagination-list--style">
+                            <li class="pagination-list__items" data-bind="css: { disabled: currentPage() === 1 }">
+                                <a href="#" aria-label="Previous" data-bind="click: goToPreviousPage">
+                                <span aria-hidden="true"
+                                      class="glyphicon glyphicon-step-backward glyphicon-pagination--style"></span>
+                                </a>
+                            </li>
+
+                            <!-- ko foreach: totalNumbersOfPages -->
+                            <li class="pagination-list__items"
+                                data-bind="css: { active: $parent.currentPage() === $data }">
+                                <a href="#" data-bind="text: $data,
+                                                        click: $parent.clickToPage"></a>
+                            </li>
+                            <!-- /ko -->
+                            <li class="pagination-list__items"
+                                data-bind="css: { disabled: currentPage() === totalPages() }">
+                                <a href="#" aria-label="Next" data-bind="click: goToNextPage">
+                                <span aria-hidden="true"
+                                      class="glyphicon glyphicon-step-forward glyphicon-pagination--style"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div data-bind="visible: emptyForm()">
+        <div class="page-header">
+            <h1 class="page-header--title">Редагування статті</h1>
+        </div>
+        <main>
+            <form action="#" id="form" data-bind="with: selectedArticle, submit: saveArticle" novalidate>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <label class="label__style">Постер
+                            <a href="#" data-bind="click: $parent.openFileWindow">
+                                <span class="glyphicon glyphicon-retweet"></span>
+                            </a>
+                            <input style="display: none" type="file" id="openFileWindow"
+                                   data-bind="event: { change: $parent.uploadPoster } ">
+                        </label>
+                        <img class="img-thumbnail img-thumbnail--style" data-bind="attr: { src: thumbnail }">
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <label class="label__style" for="titleEdit">Заголовок</label>
+                        <input type="text" class="form-control" id="titleEdit"
+                               data-bind="value: title"
+                               required>
+                        <br>
+                        <label for="shortArticleText" class="label__style">Короткий опис</label>
+                        <textarea id="shortArticleText" cols="60" rows="15" class="form-control"
+                                  data-bind="value: shortContent"
+                                  required></textarea>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <label for="fullArticleText" class="label__style">Текст статті</label>
+                    <textarea id="fullArticleText" class="form-control" rows="15" cols="160"
+                              data-bind="value: content"
+                              required></textarea>
+                </div>
+                <br>
+                <div class="btn-group pull-right" role="group">
+                    <button type="button" class="btn btn-default" data-bind="click: $parent.closeForm">
+                        Скасувати <span class="glyphicon glyphicon-remove"></span></button>
+                    <button id="btnToSave" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-save"></span>
+                        Зберегти
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+<script src="node_modules/requirejs/require.js"></script>
+<script src="js/requirejs.config.js"></script>
+<script src="js/admin-articles-pages.js"></script>                            

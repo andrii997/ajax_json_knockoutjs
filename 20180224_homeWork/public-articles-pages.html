@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/public-full-article-page.css">
+    <link rel="stylesheet" href="css/public-list-articles-page.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
+    <title>Public articles pages</title>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-inverse" id="navbar">
+        <div class="container-inv">
+            <div class="navbar-header">
+                <a class="navbar-brand header__logo" href="#">
+                    <img src="img/logoImg.png" class="logoImg">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li data-bind="css: { active: !selectedArticle() }">
+                        <a href="#" class="text__header" data-bind="click: pressBtnAnnouncements">Анонси</a>
+                    </li>
+                    <li data-bind="css: { active: selectedArticle() }, visible: selectedArticle()">
+                        <a class="text__header" href="#">Стаття</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#authorizationForm">
+                            <span class="glyphicon glyphicon-user"></span> Увійти
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#registrationForm"
+                           data-bind="click: clickToRegistration">
+                            <span class="glyphicon glyphicon-pencil"></span> Зареєструватися
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div data-bind="with: selectedArticle, visible: selectedArticle()">
+        <div class="page__header">
+            <h1 class="main__title" data-bind="text: title"></h1>
+        </div>
+        <div>
+            <img class="articlePoster__item" data-bind="attr: { src: thumbnail }">
+        </div>
+        <article class="mainArticle" data-bind="text: content"></article>
+        <div class="pull-right">
+            <h4>Author:
+                <small data-bind="text: authorFullName"></small>
+            </h4>
+        </div>
+        <div class="articleAnchor">
+            <a href="#">
+                <span class="glyphicon glyphicon-hand-up glyphicon-hand-up--style"
+                      data-bind="click: $parent.goUp"></span>
+            </a>
+        </div>
+    </div>
+    <form class="modal fade " id="authorizationForm" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Форма авторизації</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="input-group">
+                        <label for="userNameInput" class="input-group-addon">Full name</label>
+                        <input type="text"
+                               class="form-control "
+                               placeholder="Chandler Roman"
+                               id="userNameInput">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <label for="userPasswordInput" class="input-group-addon">Password</label>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Enter 100"
+                               id="userPasswordInput">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Відміна
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm"><span
+                            class="glyphicon glyphicon-arrow-right"></span> Увійти
+                    </button>
+                    <a hidden id="pageOfUser"></a>
+                    <a href="http://localhost:8081/" id="linkToAdminPage"></a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form class="modal fade" id="registrationForm" tabindex="-1" role="dialog"
+          data-bind="with: registrationForm, submit: sendRegistrationData">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Форма реєстрації</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="fullNameInput">Full name</label>
+                        <input type="text" class="form-control" size="55" id="fullNameInput"
+                               placeholder="Jane Doe"
+                               data-bind="value: fullName">
+                    </div>
+                    <div class="form-group">
+                        <label for="professionInput">Profession</label>
+                        <input type="text" id="professionInput" class="form-control" size="60"
+                               placeholder="Engineer" data-bind="value: profession">
+                    </div>
+                    <div class="form-group">
+                        <label for="countryInput">Country</label>
+                        <select class="form-control" id="countryInput"
+                                data-bind="options: $parent.countryData,
+                                            optionsCaption: 'Не вибрано',
+                                            value: country">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mailInput">E-Mail</label>
+                        <input type="text" id="mailInput" class="form-control" size="60"
+                               placeholder="mymail@mail.com"
+                               data-bind="value: email">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="regBtnCancel" type="button" class="btn btn-default" data-dismiss="modal">Відміна
+                        <span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Зареєструватися
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div data-bind="visible: !selectedArticle()">
+        <div class="page__header">
+            <h1 class="main__title">Перелік статей</h1>
+        </div>
+        <main>
+            <div class="row article__items" data-bind="foreach: articlesData()">
+                <div class="panel panel-default col-xs-12 col-sm-6 panel-default--style clearfix">
+                    <div class="panel-heading">
+                        <h3 class="panel-title panel-title--style" data-bind="text: title"></h3>
+                    </div>
+                    <div class="panel-body panel-body--style">
+                        <div class="media">
+                            <div class="media-left media-top">
+                                <img class="media-object media-object--article" data-bind="attr: { src: thumbnail }">
+                            </div>
+                            <div class="media-body media-body--style" data-bind="text: shortContent"></div>
+                        </div>
+                    </div>
+                    <div class="panel-footer panel-footer--style">
+                        <div class="row">
+                            <div class="media col-xs-12 col-sm-10 media--style">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object media-object--style" src="img/userImg-200x200.jpg"
+                                             alt="...">
+                                    </a>
+                                </div>
+                                <div class="media-body media-body--footer">
+                                    <h4 class="media-heading" data-bind="text: authorFullName"></h4>
+                                    <div class="panel-footer--itemsBlock">
+                                        <a href="#" class="panel-footer__heart">
+                                            <span class="glyphicon glyphicon-heart-empty"></span>
+                                        </a>0
+                                    </div>
+                                    <div class="panel-footer--itemsBlock">
+                                        <span class="glyphicon glyphicon-eye-open glyphicon-footer--style"></span> 0
+                                    </div>
+                                    <div class="panel-footer--itemsBlock">
+                                        <span class="glyphicon glyphicon-comment glyphicon-footer--style"></span> 0
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-info--style" data-bind="click: $parent.chooseArticle">More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination--list">
+                <li class="pagination--listItems" data-bind="css: { disabled: currentPage() === 1 }">
+                    <a href="#" aria-label="Previous" data-bind="click: goToPreviousPage">
+                    <span aria-hidden="true"
+                          class="glyphicon glyphicon-step-backward glyphicon-pagination--style"></span>
+                    </a>
+                </li>
+
+                <!-- ko foreach: numbersOfPages -->
+                <li class="pagination--listItems" data-bind="css: { active: $parent.currentPage() === $data }">
+                    <a href="#" data-bind="text: $data, click: $parent.clickToPage"></a>
+                </li>
+                <!-- /ko -->
+
+                <li class="pagination--listItems" data-bind="css: { disabled: currentPage() === totalPages() }">
+                    <a href="#" aria-label="Next" data-bind="click: goToNextPage">
+                    <span aria-hidden="true"
+                          class="glyphicon glyphicon-step-forward glyphicon-pagination--style"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="node_modules/requirejs/require.js"></script>
+<script src="js/requirejs.config.js"></script>
+<script src="js/public-articles-pages.js"></script>
+</body>
+</html>                                                                                 

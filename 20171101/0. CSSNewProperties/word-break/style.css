@@ -1,0 +1,37 @@
+html, body {
+	background: #ccc;
+	font-size: 24px;
+	margin: 0;
+	font-family: "Segoe UI Light";
+	color: #222;
+	width: 800px;
+	margin: 0 auto;
+}
+h1, h2, h3 {
+	color: #333;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+h2 {
+	font-size: 1.5em;
+}
+
+.word-break.all {
+	word-break: break-all;
+}
+
+.word-break.normal {
+	word-break: normal;
+}
+.word-wrap {
+	width: 200px;
+}
+.word-wrap.break-word {
+	word-wrap: break-word;
+}
+.word-wrap.normal {
+	word-wrap: normal;
+}

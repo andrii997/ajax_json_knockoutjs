@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		#item {
+			position: absolute;
+			width: 200px;
+			height: 200px;
+			background: #3333ff;
+			animation: demo 2s steps(5, start) alternate infinite both;
+		}
+
+		@keyframes demo {
+			from, to {
+				top: 0;
+				left: 0;
+			}
+			25% {
+				top: 0;
+				left: 600px;
+			}
+
+			50% {
+				top: 600px;
+				left: 600px;
+			}
+			75% {
+				top: 600px;
+				left: 0;
+			}
+		}
+		#grad {
+			width: 200px;
+			height: 200px;
+			background: radial-gradient(circle at center, magenta, red, darkmagenta)
+		}
+		#grad2 {
+			width: 200px;
+			height: 200px;
+			background: linear-gradient(to right bottom, red, blue);
+		}
+	</style>
+</head>
+<body>
+<!--<div id="item"></div>-->
+<div id="grad"></div>
+<div id="grad2"></div>
+</body>
+</html>

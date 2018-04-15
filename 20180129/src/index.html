@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<table>
+    <th id="id_id">id</th>
+    <th id="userName">userName</th>
+    <th id="birthDay">birthDay</th>
+    <th id="company">company</th>
+</table>
+<tbody id="tbody">
+
+</tbody>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "datta.json");
+
+    xhr.responseType = "json";
+
+    xhr.send();
+    xhr.addEventListener("readystatechange", function (e) {
+        if (this.readyState !== this.DONE) {
+            return;
+        }
+        for (var i = 0; i < this.response.length; i++) {
+            this.response[i];
+            return;
+        }
+
+
+        var
+            id = document.getElementById('id_id'),
+            uName = document.getElementById('userName'),
+            bDay = document.getElementById('birthDay'),
+            company = document.getElementById('company');
+
+        id.textContent = this.response.id_id;
+        uName.textContent = this.response.userName;
+        console.log(this.response);
+    });
+
+
+
+</script>
+</body>
+</html>

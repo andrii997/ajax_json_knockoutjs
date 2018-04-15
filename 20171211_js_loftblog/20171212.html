@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//    var users = [];
+//    for (var i = 0; i < 3; i++) {
+//        var user = {};
+//        user.name = prompt("name user");
+//        user.login = prompt("login user");
+//        user.password = prompt("password");
+//
+//        users.push(user);
+//    }
+//
+//    for (var k = 0; k < users.length; k++) {
+//        if (user.login = '123' ) {
+//                console.log('youus');
+//
+//        }
+//    }
+//    console.log(users);
+//    console.log(user);
+    function plus(number1, number2) {
+return number1 + number2;
+    }
+    function minus(num1, num2) {
+return num1 + num2;
+    }
+var first_number = +prompt("enter first number");
+var second_number = +prompt("enter second number");
+var operand = prompt("enter operand");
+var result;
+
+if (operand=='+') {
+    result = plus(first_number + second_number);
+}
+if (operand=='-') {
+    result = minus(first_number + second_number);
+}
+function threed (operand, first, second) {
+
+    if (operand=="+") {
+        return plus(first, second);
+    } if (operand=="-") {
+        return minus(first, second);
+    }
+}
+var result = threed(operand, first_number, second_number);
+console.log(result);
+
+
+function fn() {
+    var sum = 0;
+    for (var i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+
+    return sum;
+}
+
+fn(12,15,5,4,3,2,1);
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<strong>NName:</strong><p id="first"></p>
+<strong>uNName:</strong><p id="second"></p>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "package.json");
+
+    xhr.responseType = "json";
+
+    xhr.send();
+    xhr.addEventListener("readystatechange", function (e) {
+        if (this.readyState !== this.DONE) {
+            return;
+        }
+    });
+
+    var
+        nname = document.getElementById('first'),
+        sname = document.getElementById('second');
+
+    nname.textContent = this.response.name;
+
+</script>
+
+
+<script>
+    $(document).ready(function() {
+
+        $("#getMessage").on("click", function() {
+            $.getJSON("datta.json", function(json) {
+
+                var html = "";
+                // Only change code below this line.
+
+                json.forEach(function(val) {
+                    var keys = Object.keys(val);
+                    html += "<div class = 'cat'>";
+                    keys.forEach(function(key) {
+                        html += "<strong>" + key + "</strong>: " + val[key] + "<br>";
+                    });
+                    html += "</div><br>";
+                });
+
+                // Only change code above this line.
+
+                $(".message").html(html);
+
+            });
+        });
+    });
+</script>
+
+<div class="container-fluid">
+    <div class = "row text-center">
+        <h2>Cat Photo Finder</h2>
+    </div>
+    <div class = "row text-center">
+        <div class = "col-xs-12 well message">
+            The message will go here
+        </div>
+    </div>
+    <div class = "row text-center">
+        <div class = "col-xs-12">
+            <button id = "getMessage" class = "btn btn-primary">
+                Get Message
+            </button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

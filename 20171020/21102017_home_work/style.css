@@ -1,0 +1,63 @@
+body {
+		background-color: #F6F6F6;
+		}
+		a {
+			text-decoration: none;
+		}
+		.menu_left {
+			float: left;
+			width: 10%;
+			font-size: 12px;
+		}
+		.border_bt {
+			border-bottom: 1px solid #D8D8D8;
+		}
+		.mayning {
+			float: right;
+			padding: 15px;
+			width: 85%;
+			background-color: white;
+			border: 1px solid #A7D7F9;
+		}
+		.mayning .img1 {
+			float: right;
+			width: 300px;
+			background-color: #F8F9FA;
+			border: 1px solid #A2A9B1;
+		}
+		.zmist {
+			width: 350px;
+			height: 250px;
+			background-color: #F8F9FA;
+			border: 1px solid #A2A9B1;
+		}
+		.zmist h4{
+			text-align: center;
+		}
+		.bg_color {
+			background-color: #F8F9FA;
+			border: 1px solid #EAECF0;
+		}
+		.img_mayning_bitcoin {
+			float: right;
+			width: 250px;
+			background-color: #F8F9FA;
+			border: 1px solid #A2A9B1;
+		}
+		.to_look a {
+			color: red;
+		}
+		.left {
+			float: left;
+			width: 45%;
+		}
+		.right {
+			float: right;
+			width: 45%;
+		}
+		.ft_wiki {
+			height: 30px;
+			background-color: #F8F9FA;
+			border: 1px solid #A2A9B1;
+			padding-top: 10px;
+		}

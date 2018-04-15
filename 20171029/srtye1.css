@@ -1,0 +1,49 @@
+#test a:link,
+#test a:visited {
+	text-decoration: none;
+	color: red;
+}
+#test a:hover {
+	text-decoration: underline;
+	color: blue;
+}
+
+.www a:link,
+.www a:visited {
+	text-decoration: underline;
+	color: blue;
+}
+.www a:hover {
+	text-decoration: none;
+	color: blue;
+}
+
+#test .www a:link,
+#test .www a:visited {
+	text-decoration: overline;
+	color: green;
+}
+#test .www a:hover {
+	text-decoration: line-through;
+	color: yellow;
+}
+
+.eee .www a:link,
+.eee .www a:visited {
+	text-decoration: overline;
+	color: #f5f;
+}
+.eee .www a:hover {
+	text-decoration: line-through;
+	color: #9a9;
+}
+
+#swit p:first-child {
+	text-decoration: underline;
+}
+#swit p:nth-child(2) {
+	text-decoration: line-through;
+}
+#swit p:last-child {
+	text-decoration: overline;
+}

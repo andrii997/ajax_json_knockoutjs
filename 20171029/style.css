@@ -1,0 +1,32 @@
+.zv1 {
+	width: 300px;
+	height: 100px;
+	background-color: red;
+}
+.zv2 h1,
+.zv2 p,
+.zv3 h1,
+.zv3 p
+.zv4 h1,
+.zv4 p {
+	font-weight: bold;
+	text-align: justify;
+	width: 40%;
+}
+.zv2 {
+	background-image: url(Screenshot_4.png);
+}
+.zv3 {
+	background-image: url(Screenshot_1.png);
+	background-position: right top;
+	background-repeat: repeat-y;
+}
+.zv4 {
+	color: white;
+	background: black url(123.jpg) no-repeat top left;
+	ba
+}
+.zv4 h1 {
+	width: 40%;
+	text-align: center;
+}

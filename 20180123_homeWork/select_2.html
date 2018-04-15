@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(function () {
+            console.log($('img').attr('src'));
+        });
+    </script>
+
+</head>
+<body>
+
+<select name="sel" id="sel">
+    <option value="">Lorem ipsum.</option>
+    <option value="">Dolor, libero!</option>
+    <option value="">Est, illum.</option>
+    <option value="">Animi, quo!</option>
+    <option value="">Magni, perspiciatis!</option>
+    <option value="">Mollitia, quo?</option>
+    <option value="">Ipsam, quam.</option>
+    <option value="">Quis, similique.</option>
+    <option value="">Ipsa, totam?</option>
+    <option value="">Error, sit.</option>
+    <option value="">Dolore, laudantium.</option>
+    <option value="">Illo, veniam.</option>
+    <option value="">Fugit, sunt?</option>
+    <option value="">Natus, nesciunt!</option>
+    <option value="">Molestiae, quasi?</option>
+    <option value="">Dignissimos, nam!</option>
+    <option value="">Inventore, reiciendis!</option>
+    <option value="">Modi, nihil.</option>
+    <option value="">Eum, itaque.</option>
+    <option value="">Officiis, placeat!</option>
+</select>
+
+
+<script src="node_modules/select2/dist/js/select2.min.js"></script>
+
+<script>
+var counter = 0;
+    $('select').select2({
+        tempalteResult: function (state) {
+            if(!state.id) {
+                return state.text;
+            }
+            var num = counter++,
+                $wrappedText = $('<strong>' + num +". " + state.text + '</strong>');
+            return $wrappedText;
+        }
+    });
+
+</script>
+</body>
+</html>

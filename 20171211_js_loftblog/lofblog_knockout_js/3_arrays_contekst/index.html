@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+<div class="col-xs-12 col-sm-8 users-edit-hidden">
+<div class="col-xs-12 col-sm-8 users-edit-hidden">
+    <h2>Виберіть користувача</h2>
+    <form class="form form-inline delete" id="form_control" data-bind="submit: save">
+        <fieldset>
+            <div class="row">
+                <div class=" col-xs-12 col-sm-7">
+                    <div class="input-group input-group--style">
+                        <label for="firstName" class="input-group-addon">Full name</label>
+                        <input type="text" class="form-control" size="55" id="firstName"
+                               placeholder="Jane Doe" data-bind="value: firstName">
+                    </div>
+                    <div class="input-group input-group--style">
+                        <label for="lastName" class="input-group-addon">lastName</label>
+                        <input type="text" id="lastName" class="form-control" size="60"
+                               placeholder="Palm Bay FL 32907" data-bind="value: lastName">
+                    </div>
+                    <div class="input-group input-group--style">
+                        <label for="birthday" class="input-group-addon">Birthday</label>
+                        <input type='text' size="60" class="form-control input__style date"
+                               id='birthday' data-bind="value: age">
+                    </div>
+
+                    <div class="input-group input-group--style">
+                        <label for="countryInput" class="input-group-addon">Country</label>
+                        <select class="form-control input__style" id="countryInput" data-bind="options: countryOption,
+optionsCaption: 'ne vibrano', value: country, valueAloow: true">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <label class="pad_add">dostup admin<input type="checkbox" data-bind="checked: isAdmin"></label><br><br>
+            <div class="form-group pad_add" data-bind="visible: isAdmin">
+                <label>admin stat<input type="radio" value="admin stat" data-bind="checked: admin_stat"></label><br><br>
+                <label>admin book<input type="radio" value="admin book" data-bind="checked: admin_stat"></label><br><br>
+                <label>admin all<input type="radio" value="admin all" data-bind="checked: admin_stat"></label>
+            </div>
+            <br><br>
+
+            <div class="btn-group btn-group-sm" role="group">
+                <button class="btn btn-warning">
+                    <span class="glyphicon glyphicon-floppy-save"></span> Редагувати
+                </button>
+                <button type="button" class="btn btn-default" id="cencel" data-bind="visible:notEmpty, click: reset">
+                    <span class="glyphicon glyphicon-floppy-remove"></span>Clear
+                </button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div class="col-xs-6">
+        <h3>Новий користувач: </h3>
+    </div>
+    <ul>
+        <li data-bind="text: fullName">fullNmae</li>
+        <li data-bind="text: age">22 year</li>
+        country
+        <li data-bind="text: country"></li>
+        <li data-bind="visible: isAdmin"><span data-bind="text: admin_stat"></span></li>
+    </ul>
+
+</div>
+<script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

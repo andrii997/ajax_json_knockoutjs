@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+}
+
+.GalleryItem {
+	display: inline-block;
+	border-radius: 5px;
+	border: 1px solid #999;
+	padding: 10px;
+	width: 200px;
+}
+
+.GalleryItem:hover {
+	box-shadow: 0 0 10px #ccc;
+}
+
+.GalleryItem:hover .GalleryItem-pic {
+	transform: scale(1.5);
+}
+
+.GalleryItem-wrapper {
+	border-radius: 5px;
+	font-size: 0;
+	border: 1px solid #f4f4f4;
+	overflow: hidden;
+}
+
+.GalleryItem-pic {
+	width: auto;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%;
+
+	transition: transform .3s;
+}

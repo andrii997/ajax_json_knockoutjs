@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css">
+
+    <link rel="stylesheet" href="node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-tokenfield/dist/css/bootstrap-tokenfield.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-wysiwyg/css/style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-datetimepicker-npm/build/css/bootstrap-datetimepicker.min.css">
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <small><a href="#">Return_book</a></small>
+                <h1>Some article</h1>
+            </div>
+            <form action="#" class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-xs-10 col-xs-push-1">
+                        Title
+                        <input type="text" name="title" id="title" value="" class="form-control" placeholder="Yout title"/>
+                    </div>
+                    <br><br><br><br>
+
+                    <div class="col-xs-4 col-xs-push-1">
+                        <input type="text" class="form-control" id="tokenfield" value="red,blue,yellow" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pub_dat" class="control-label col-xs-2">Publish date</label>
+                        <div class="input-group date col-xs-5" id='datetimepicker'>
+                            <input type='text' class="form-control" id="pub_dat"/>
+                            <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                        </div>
+                    </div>
+
+                    <input type="checkbox" name="readonly" readonly>
+                </div>
+
+                <div class="container">
+                    <textarea id="txtedit">
+
+                    </textarea>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="node_modules/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+
+<script src="node_modules/select2/dist/js/select2.min.js"></script>
+
+
+
+<script src="node_modules/bootstrap-tokenfield/dist/bootstrap-tokenfield.min.js"></script>
+
+<script src="node_modules/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+
+<script src="node_modules/bootstrap-datetimepicker-npm/build/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="node_modules/moment/src/moment.js"></script>
+
+
+
+<script>
+    $("#txtedit").wysiwyg();
+    $('#tokenfield').tokenfield({
+        autocomplete: {
+            source: ['red','blue','green','yellow'],
+            delay: 100
+        },
+        showAutocompleteOnFocus: true
+    });
+    $(function () {
+        $('#datetimepicker').datetimepicker({  //**  datetimepicker
+            defaultDate: "11/1/2013",
+            disabledDates: [
+                moment("12/25/2013"),
+                new Date(2013, 11 - 1, 21),
+                "11/22/2013 00:53"
+            ]
+        });
+    });
+    $("[name='my-checkbox']").bootstrapSwitch();
+    $.fn.bootstrapSwitch.defaults.size = 'large';
+    $.fn.bootstrapSwitch.defaults.onColor = 'success';
+
+</script>
+</body>
+</html>

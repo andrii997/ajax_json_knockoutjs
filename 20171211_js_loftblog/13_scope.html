@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var oneOne = 1;
+// завжди писати var !!!
+    globalll = 2444;
+
+    var outer = function func() {
+        var arr1 = [1,2,3];
+
+        for (var i=0; i < arr1.length; i++) {  //з var і без
+            //console.log( i );
+            inner();
+
+            //console.log( 'first cikle' );
+        }
+    };
+    var inner = function() {
+        var arr2 = [4,5,6];
+
+        for (var i=0; i < arr2.length; i++) {
+            //console.log( i );
+
+            //console.log( 'second cikle' );
+        }
+    };
+
+    outer();
+
+// цепочка області видимості
+    var k = 4;
+    console.log( k );//4
+    var outerScope = function () {
+        console.log( k );
+        var k = 8;
+        console.log( k );//8
+        var innerScope = function () {
+
+            var k = 12;
+            console.log( k );//12
+        };
+
+        innerScope();
+        console.log( k );//8
+    };
+
+    outerScope();
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

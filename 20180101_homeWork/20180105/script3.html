@@ -1,0 +1,80 @@
+<!--Реализуйте класс Student (Студент), который будет наследовать от класса User.-->
+<!--Этот класс должен иметь следующие свойства: name (имя, наследуется от User),-->
+<!--surname (фамилия, наследуется от User), year (год поступления в вуз). Класс должен
+иметь метод getFullName() (наследуется от User), с помощью которого можно вывести одновременно
+имя и фамилию студента. Также класс должен иметь метод getCourse(), который будет выводить текущий
+курс студента (от 1 до 5). Курс вычисляется так: нужно от текущего года отнять год поступления в вуз.-->
+<!--Текущий год получите самостоятельно.-->
+
+<!--Вот так должен работать наш класс:-->
+
+<!--var student = new Student('Иван', 'Иванов', 2014);-->
+
+<!--console.log(worker.name); //выведет 'Иван'-->
+<!--console.log(worker.surname); //выведет 'Иванов'-->
+<!--console.log(worker.getFullName()); //выведет 'Иван Иванов'-->
+<!--console.log(worker.year); //выведет 2014
+console.log(worker.getCourse()); //выведет 3 - третий курс, так как текущий год 2017-->
+<!--Вот так должен выглядеть класс User, от которого наследуется наш Student:-->
+
+<!--class User {-->
+<!--constructor(name, surname) {-->
+<!--this.name = name;-->
+<!--this.surname = surname;-->
+<!--}-->
+
+<!--getFullName() {-->
+<!--return this.name + ' ' + this.surname;-->
+<!--}-->
+<!--}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+
+    function User (name, surname, year) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+    }
+
+    User.prototype.getFullName = function () {
+        return 'hello, my full name is ' + this.name + ' ' + this.surname;
+    };
+    User.prototype.getCourse = function () {
+        return 2018 - this.year;
+    };
+
+
+    var Student = function (name, surname, year, other) {
+        User.apply(this, arguments);
+        this.other = other || [];
+    };
+
+    Student.prototype = Object.create(User.prototype);
+    Student.prototype.constructor = Student;
+
+    var worker = new Student('Иван', 'Иванов', 2015, ['par1', 'par2', 'par3']);
+
+    console.log(worker.getFullName());
+    console.log(worker.getCourse());
+
+    console.log(worker.year);
+    console.log(worker.name);
+    console.log(worker instanceof Student);
+    console.log(worker instanceof User);
+
+
+
+
+
+
+</script>
+</body>
+</html>

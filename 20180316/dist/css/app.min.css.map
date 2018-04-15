@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.less","app.min.css"],"names":[],"mappings":"AACA,KACE,YAAA,CCAD","file":"app.min.css","sourcesContent":["@color: purple;\r\nbody {\r\n  color: @color;\r\n}","body {\n  color: purple;\n}\n"]}

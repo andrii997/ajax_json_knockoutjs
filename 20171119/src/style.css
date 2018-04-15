@@ -1,0 +1,280 @@
+* {
+	box-sizing: border-box;
+}
+html, body {
+	margin: 0;
+	font-family: sans-serif;
+	height: 100%;
+}
+
+.Content {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+.Background_img {
+	background: url(image/main_head.png) no-repeat;
+	background-size: cover;
+}
+
+.Section_white {
+	background: #fff;
+}
+
+.Content_Container {
+	max-width: 1165px;
+	margin: 0 auto;
+	height: 100%;
+
+}
+.HeaderContainer {
+	height: 100%;
+}
+.HeaderContainer:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+.header_main {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.logo_Mate {
+	display: inline-block;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: linear-gradient(to right, #57B287 50%, #67BF95 50%);
+	margin-top: 65px;
+}
+
+.Flat_Mate {
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 41px;
+	width: 300px;
+	color: #fff;
+	text-decoration: none;
+	padding-left: 75px;
+
+}
+
+.ToppRight_Section {
+	display: inline-block;
+	float: right;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	margin-top: 72px;
+}
+
+.Right_Have_Account {
+	font-family: 'Roboto', sans-serif;
+	font-weight: light;
+	font-size: 20px;
+	color: #c9ced7;
+}
+
+.btn_Section {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin-left: 24px;
+}
+
+.Butoon {
+	padding: 12px 17px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #cad1db;
+	background: #3d4b60;
+	border-radius: 7px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	position: relative;
+	transition: .4s;
+}
+
+.Butoon:hover {
+	background: #2c3a4f;
+	box-shadow: 0 1px 0 0 #cad1db;
+}
+.Main_Section_Header {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	margin-top: 225px;
+}
+
+.Main_Section_Lorem {
+	margin: 0;
+	font-family: serif;
+	font-weight: 300;
+	font-size: 51px;
+	color: #fff;
+	width: 650px;
+}
+
+.Main_Section_ipsum {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 26px;
+	font-weight: 300;
+	color: #c5d2e5;
+	margin-top: 65px;
+}
+
+.btn_Section_Read {
+	margin-top: 65px;
+}
+
+.Butoon_Read {
+	padding: 20px 40px;
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	background: #67bf95;
+	border-radius: 6px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 32px;
+	position: relative;
+	transition: .4s;
+}
+
+.Butoon_Read:hover {
+	background: #62c896;
+	box-shadow: 0 2px 0 0 #64c864;
+}
+.Main_Section_ImgQestion {
+	display: inline-block;
+	float: right;
+	margin-right: 40px;
+	position: relative;
+	bottom: 200px;
+}
+
+
+/************************************/
+
+
+.White_Section_List {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	display: inline-block;
+	list-style: none;
+	margin-top: 100px;
+}
+
+.Section_List {
+	float: right;
+}
+
+.List_blue {
+	margin: 0;
+	padding: 0;
+	float: left;
+	display: inline-block;
+	margin-left: 32px;
+}
+
+.Lorem_center_hp2 {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 580px;
+	margin-left: 85px;
+}
+
+.Lorem_center_h2 {
+	margin: 0 auto;
+	padding: 0;
+	font-family: serif;
+	font-size: 40px;
+	font-weight: 600;
+	color: #37414e;
+	margin-top: 40px;
+}
+
+.Lorem_center_p2 {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 20px;
+	line-height: 38px;
+	color: #4b596c;
+	text-align: justify;
+	margin-top: 40px;
+	margin-bottom: 5px;
+}
+.pencil_facebook {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.icon_icon {
+	margin: 0;
+	padding: 0;
+	width: 73px;
+	height: 73px;
+	background: #67bf95;
+	border: 3px solid #67bf95;
+	border-radius: 50%;
+	margin-left: 115px;
+	margin-top: 50px;
+	position: relative;
+}
+.icon_icon_green {
+	margin: 0 auto;
+	display: inline-block;
+	list-style: none;
+}
+
+.icon_pencil {
+	font-size: 32px;
+	color: #fff;
+	position: relative;
+}
+
+.icon_facebook {
+	background: transparent;
+	font-size: 32px;
+	color: #67bf95;
+	position: relative;
+}
+.fa-pencil,
+.fa-facebook {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/************       *************/
+
+.Section_Green {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	background: #52ad81;
+}
+
+.The_Modern {
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	margin-top: 40px;
+}
+
+.Web_Designed_Green {
+	font-size: 56px;
+	font-weight: 300;
+	text-align: center;
+}
+.Make_Green {
+	font-size: 30px;
+	display: inline-block;
+}

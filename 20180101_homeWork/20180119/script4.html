@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span>
+    span_1
+    <li>li-1</li>
+    <li>li-2</li>
+</span>
+<span>span_2
+    <a href="#">a-1</a>
+    <a href="#">a-2</a>
+    <a href="#">a-3</a>
+</span>
+<span>
+    span_3
+</span>
+
+<span>
+    span_4
+</span><br>
+<span id="span">
+    span_5
+</span>
+
+<li>li-1_1</li>
+<li>li-2_2</li>
+<a href="#">a-1_1</a>
+<a href="#">a-2_2</a>
+<br>
+<script>
+    for (var i = 0; i < document.links.length; i++)
+
+    {
+
+        document.write("<b>Link number " + i + " has these properties:</b><br/>");
+
+        document.write("<i>nodeName is</i> " + document.links[i].nodeName + "<br/>");
+
+        document.write("<i>nodeType is</i> " + document.links[i].nodeType + "<br/>");
+
+        document.write("<i>parentNode.nodeValue is</i> "
+            + document.links[i].parentNode.nodeValue + "<br/>");
+
+        document.write("<i>firstChild is</i> " + document.links[i].firstChild  + "<br/>");
+
+        document.write("<i>firstChild.nodeValue is</i> "
+            + document.links[i].firstChild.nodeValue + "<br/>");
+
+        document.write("<i>href is</i> " + document.links[i].href  + "<br/>");
+
+    }
+
+</script>
+</body>
+</html>

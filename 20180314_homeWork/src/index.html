@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js AMD</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<input type="hidden" id="message" value="Hi there">
+
+<script src="node_modules/node-requirejs/lib/node-requirejs.js" data-main="/js/main"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="node_modules/knockout/build/output/knockout-latest.debug.js"></script>
+<script>
+        $("#root").text("loaded!");
+</script>
+</body>
+</html>

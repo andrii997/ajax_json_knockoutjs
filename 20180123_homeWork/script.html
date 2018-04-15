@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-6">
+        <h1 class="page-header">Register form</h1>
+
+    <div class="alert alert-success"
+    id="message-success" hidden>
+    <strong>Success</strong>. Welcome
+    </div>
+
+    <div class="alert alert-danger"
+    id="message-error" hidden>
+    <strong>Error</strong>. Something wrong!
+    </div>
+            <div class="alert alert-danger"
+                 id="message-error-name_us" hidden>
+                <strong>Error</strong>. Something wrong!
+            </div>
+
+    <form action="#" name="loginForm" id="form">
+
+
+        <div class="form-group">
+            <label for="fullNAme"
+                   class="control-label">
+                User name
+            </label>
+            <input type="password"
+                   class="form-control"
+                   name="fullNAme"
+                   id="fullNAme">
+        </div>
+
+
+
+        <div class="form-group">
+        <label for="email" class="control-label">
+        Email
+        </label>
+        <input type="text"
+    class="form-control"
+    id="email"
+    name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="UsName"
+                   class="control-label">
+                Password
+            </label>
+            <input type="password"
+                   class="form-control"
+                   name="UsName"
+                   id="UsName">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="newPswd" class="control-label">
+                Confirm password
+            </label>
+            <input type="password"
+                   class="form-control"
+                   name="newPswd"
+                   id="newPswd">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="bio" class="control-label">Bio</label>
+            <div>
+                <textarea class="form-control" id="bio" name="bio" rows="3"></textarea>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="checkbox-inline">
+                <label>
+                    <input type="radio" name="state" > Male
+                </label>
+                <label>
+                    <input type="radio" name="state"> Female
+                </label>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="input-group col-xs-2">
+
+                <span class="input-group-addon">
+                    <input type="checkbox" id="chbox"  name="chbox">
+                    Згідні з умовами
+                </span>
+
+        </div>
+
+
+        <br>
+        <button class="btn btn-primary">
+            <i class="glyphicon glyphicon-registration-mark"></i>egister
+        </button>
+        </form>
+        </div>
+        </div>
+        </div>
+
+        <script>
+    var
+        MIN_LEN = 6,
+        MIN_LEN_PAS = 8,
+        form = document.forms.loginForm,
+        loginEl = form.email,
+        fullnameEl = form.UsName,
+        bioFull = form.bio,
+        CheckBox = form.chbox,
+        password_control = form.newPswd,
+        EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        successMsgEl = document.querySelector("#message-success"),
+        UserName = document.querySelector("#message-error-name_us"),
+        Password_confirm = document.querySelector("#message-error-name_us"),
+        bio_bio = document.querySelector("#message-error"),
+        errMsgEl = document.querySelector("#message-error"),
+        chbox_box = document.querySelector("#message-error");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var
+            login = loginEl.value.trim(),
+            UsName = fullnameEl.value.trim(),
+            newPswd = password_control.value.trim(),
+            check = CheckBox.checed,
+            bio = bioFull.value.trim();
+
+
+        if (login.length <= MIN_LEN) {
+            errMsgEl.textContent
+                = "Min length of email is " + MIN_LEN;
+            errMsgEl.hidden = false;
+            return;
+        }
+
+        if (!EMAIL_REGEX.test(login)) {
+            errMsgEl.textContent
+                = "Email is not valid";
+            errMsgEl.hidden = false;
+            return;
+        }
+
+        if (UsName.length <= MIN_LEN_PAS) {
+            UserName.textContent
+                = "Min length of password is " + MIN_LEN_PAS;
+            UserName.hidden = false;
+            return;
+        }
+
+        if (bio.length <= MIN_LEN) {
+            bio_bio.textContent
+                = "Заповніть поле про себе  " + MIN_LEN;
+            bio_bio.hidden = false;
+            return;
+        }
+
+        if (newPswd != UsName) {
+            Password_confirm.textContent = "your password are not coincide";
+            Password_confirm.hidden = false;
+            return;
+        }
+        if (!check.checked) {
+            chbox_box.textContent = "Ви не погодились з умовами";
+            chbox_box.hidden = false;
+            return;
+        } 
+
+        form.hidden = true;
+        errMsgEl.hidden = true;
+        UserName.hidden = true;
+        Password_confirm.hidden = true;
+        bio_bio.hidden = true;
+        chbox_box.hidden = true;
+        successMsgEl.hidden = false;
+    });
+
+</script>
+</body>
+</html>

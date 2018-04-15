@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20180211</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="node_modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+</head>
+<body>
+<div class="col-xs-10 col-xs-push-1">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Автори<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Статті</a></li>
+                    <li><a href="#">Анонси</a></li>
+                    <li><a href="#">Канал</a></li>
+                    <li><a href="#">Реклама</a></li>
+                    <li><a href="#">Настройки</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Вийти</button>
+                    </div>
+                </form>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="page-header">
+        <h2 class="page-header--title">Панель керування авторами та статтями</h2>
+    </div>
+
+    <main>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading clearfix">
+                        <h3 class="panel-title">Автори
+                            <a href="#" id="create" data-bind="click:pressCreateBtn">
+                                <span class="glyphicon glyphicon-plus"
+                                ></span>
+                            </a>
+                            <div class="btn-group btn-group-xs pull-right" role="group">
+                                <button type="button" class="btn btn-danger" id="delete" data-bind="click:removeUser">
+                                    <span class=""></span> Видалити
+                                </button>
+                            </div>
+                        </h3>
+                    </div>
+                    <div class="list-group">
+                        <ul class="user__list" style="padding-left: 0" data-bind="foreach:{data:userList, as:'user'}">
+                            <li class="li_style list-unstyled"
+                                data-bind="with:user, click:$root.editUser, css: { li__bg: $root.editable && $root.editable.id == $root.currentUser().id}">
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object user__photo img-thumbnail"
+                                                 data-bind="attr:{'src':user.photo}">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading" data-bind="text:user.fullName"></h4>
+                                        <span class="badge" data-bind="text: user.country"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-footer">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous" data-bind="click:vm.goToPerviousPage">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        <span class="sr-only">Pervious</span>
+                                    </a>
+                                </li>
+
+                                <li class="page-item" id="page" >
+                                    <a class="page-link"  href="#" data-bind="text:$data, click:$root.changePage"></a>
+                                </li>
+
+                                <li class="page-item" id="next">
+                                    <a class="page-link" href="#" aria-label="Next" data-bind="click:vm.goToNextPage">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+                <h2>Виберіть користувача</h2>
+                <form action="#" class="form form-inline " data-bind="visible:openForm, submit:sendForm" >
+                    <input type="file" id="uploadImageItem" style="display: none">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-5 form__photoBlock">
+                                <a href="#">
+                                    <img class="img-thumbnail user__photo--form"
+                                         data-bind="attr:{'src':currentUser().photo}">
+                                </a>
+                                <a href="#" id="inputclick" data-bind="click:$root.load">Завантажити
+                                    <span class=""></span>
+                                </a>
+                            </div>
+                            <div class=" col-xs-12 col-sm-7">
+                                <div class="input-group input-group--style">
+                                    <label for="fullNameInput" class="input-group-addon">Full name</label>
+                                    <input type="text" class="form-control" size="55" id="fullNameInput"
+                                           placeholder="Jane Doe" data-bind="value:currentUser().fullName">
+                                </div>
+                                <div class="input-group input-group--style">
+                                    <label for="birthday" class="input-group-addon">Birthday</label>
+                                    <input type='text' size="60" class="form-control input__style date" id='birthday'
+                                           data-bind="value:currentUser().birthday">
+                                </div>
+                                <div class="input-group input-group--style">
+                                    <label for="professionInput" class="input-group-addon">Profession</label>
+                                    <input type="text" id="professionInput" class="form-control" size="60"
+                                           placeholder="Engineer"  data-bind="value:currentUser().profession">
+                                </div>
+                                <div class="input-group input-group--style">
+                                    <label for="addressInput" class="input-group-addon">Address</label>
+                                    <input type="text" id="addressInput" class="form-control" size="60"
+                                           placeholder="Palm Bay FL 32907" data-bind="value:currentUser().address">
+                                </div>
+                                <div class="input-group input-group--style">
+                                    <label for="countryInput" class="input-group-addon">Country</label>
+                                    <select class="form-control input__style" id="countryInput"
+                                            data-bind="options: countryList,
+                                            optionsText: $data,
+                                    value: currentUser().country">
+
+                                    </select>
+                                </div>
+                                <div class="input-group input-group--style">
+                                    <label for="mailInput" class="input-group-addon">E-Mail</label>
+                                    <input type="text" id="mailInput" class="form-control" size="60"
+                                           placeholder="mymail@mail.com" data-bind="value:currentUser().email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group textarea__style">
+                            <label for="shortInfoInput" class="input-group-addon">Short info</label>
+                            <textarea class="form-control" cols="95" rows="3" id="shortInfoInput"
+                                      data-bind="value:currentUser().shortInfo"></textarea>
+                        </div>
+                        <div class="input-group input-group--style textarea__style">
+                            <label for="detailedInfoInput" class="input-group-addon">Detailed info</label>
+                            <textarea class="form-control" cols="92" rows="5" id="detailedInfoInput"
+                                      data-bind="value:currentUser().fullInfo"></textarea>
+                        </div>
+                        <div class="btn-group btn-group-sm pull-right" role="group">
+                            <button class="btn btn-warning">
+                                <span class=""></span> Редагувати
+                            </button>
+                            <button class="btn btn-primary">
+                                <span class=""></span> Зберегти
+                            </button>
+                            <button type="button" class="btn btn-default" id="cancel" data-bind="click:closeForm">
+                                Скасувати
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+</div>
+
+<style>
+    .glyphicon-plus {
+        color: #1b6d85;
+    }
+    .padding-top {
+        margin-top: 290px;
+    }
+    .delete {
+        display: none;
+    }
+
+</style>
+
+
+
+<!--<h1 class="col-xs-10 col-xs-push-1" data-bind="text: title"></h1>-->
+<!--<div class="panel col-xs-10 col-xs-push-1">-->
+    <!--<div class="panel-header">-->
+        <!--<h3>users</h3>-->
+    <!--</div>-->
+    <!--<ul class="list-group" data-bind="foreach: users">-->
+        <!--<li class="list-group-item" data-bind="click: $root.activateUser, css: { 'active': $data == $root.currentUser() }">-->
+            <!--<h4>-->
+                <!--<span data-bind="text: fullName"></span>-->
+                <!--<button class="btn btn-danger pull-right" data-bind="click: $root.removeCurrentUser">-->
+                    <!--<i class="glyphicon glyphicon-trash"></i>-->
+                <!--</button>-->
+            <!--</h4>-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--<div class="panel-footer">-->
+        <!--<nav>-->
+            <!--<ul class="pagination">-->
+                <!--<li data-bind="css: {'disabled': $root.isOnFirstPage }">-->
+                    <!--<a href="#" data-bind="click: $root.goToFirstPage">First</a>-->
+                <!--</li>-->
+
+                <!--<li data-bind="css: {'disabled': $root.isOnFirstPage }">-->
+                    <!--<a href="#" data-bind="click: $root.goToPrevPage">Prev</a>-->
+                <!--</li>-->
+
+                <!--&lt;!&ndash; ko foreach: paginationInfo.pages &ndash;&gt;-->
+
+                <!--<li data-bind="css: {'active': $data == $root.paginationInfo.page()}">-->
+                    <!--<a href="#" data-bind="text: $data,-->
+                    <!--click: $root.goToPage"></a>-->
+                <!--</li>-->
+
+                <!--&lt;!&ndash; /ko &ndash;&gt;-->
+
+                <!--<li data-bind="css: {'disabled': $root.isOnLastPage }">-->
+                    <!--<a href="#" data-bind="click: $root.goToNextPage">Next</a>-->
+                <!--</li>-->
+                <!--<li data-bind="css: {'disabled': $root.isOnLastPage }">-->
+                    <!--<a href="#" data-bind="click: $root.goToLastPage">Last</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</nav>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</body>
+</html>

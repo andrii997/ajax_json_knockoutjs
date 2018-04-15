@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Person, person, anotherPerson, Devoloper, devoloper;
+    
+    Person = function (name) {
+        this.name = name;
+    };
+    Person.prototype.greet = function () {
+        console.log('hello, my name is' + this.name);
+    };
+
+    Devoloper = function (name, skills) {
+        Person.apply(this, arguments);
+        this.skills = skills || [];
+    };
+    Devoloper.prototype = Object.create(Person.prototype);
+    Devoloper.prototype.constructor = Devoloper;
+
+    devoloper = new Devoloper('egjhn', ['sdg', 'ror', 'python']);
+    console.log(devoloper.name);
+    console.log(devoloper.skills);
+    devoloper.greet();
+    console.log(devoloper instanceof Devoloper);
+    console.log(devoloper instanceof Person);
+
+</script>
+</body>
+</html>

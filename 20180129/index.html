@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-border table-hover">
+                <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>User name</th>
+                    <th>birthDay</th>
+                    <th>company</th>
+                    <th>contact</th>
+                    <th>email</th>
+                    <th>address</th>
+                    <th>country</th>
+                </tr>
+                </thead>
+                <tbody id="output">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<p id="content_p"></p>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+
+<script>
+    function show() {
+        $.ajax({
+            url: "datta.json",
+            cache: false,
+            success: function (html) {
+                $("#content_p").html(html);
+            }
+        });
+    }
+
+</script>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    // налаштували куди і як відправляти запит
+    xhr.open("get", "datta.json");
+
+    xhr.responseType = "json";
+
+    //відправити запит
+    xhr.send();
+
+    var  output = document.querySelector("#output");
+    //підписались на подію змінили статус
+    xhr.addEventListener("readystatechange", function (e) {
+        if (this.readyState !== this.DONE) {
+            return;
+        }
+
+        for (var i = 0; i < this.response.length; i++){
+            var
+                curr = this.response[i],
+                tr = document.createElement("tr"),
+                userNameCell = document.createElement("td"),
+                photoCell = document.createElement("td"),
+                company = document.createElement("td"),
+                contact = document.createElement("td"),
+                email = document.createElement("td"),
+                address = document.createElement("td"),
+                country = document.createElement("td");
+
+            tr.appendChild(photoCell);
+            tr.appendChild(userNameCell);
+            tr.appendChild(birthDay);
+            tr.appendChild(company);
+            tr.appendChild(contact);
+            tr.appendChild(email);
+            tr.appendChild(address);
+            tr.appendChild(country);
+
+            photoImg.setAttribute("src", curr.photo);
+            photoCell.appendChild(photoImg);
+
+            userNameCell.textContent = curr.userName;
+            birthDay.textContent = curr.birthDay;
+            company.textContent = curr.company;
+            contact.textContent = curr.contact;
+            email.textContent = curr.email;
+            address.textContent = curr.address;
+            country.textContent = curr.country;
+
+            output.appendChild(tr);
+        }
+
+    });
+</script>
+
+</body>
+</html>

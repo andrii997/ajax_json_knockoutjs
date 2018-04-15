@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var User = {
+        constructor: function(name, surname, year) {
+            this.name = name;
+            this.surname = surname;
+            this.year = +year;
+            return this;
+        }
+    };
+    var Student = Object.create(User);
+
+    Student.constructor = function (name, surname, year) {
+        User.constructor.add(this, arguments);
+        this.getFullName = this.name +" "+ this.surname;
+        return this;
+    };
+
+    Student.developer = function () {
+      console.log(this.name +" "+ this.surname) ;
+    };
+    var developer = Object.create(Student).constructor('awf','asf', 2011);
+    console.log(developer.getFullName());
+    console.log(developer.grear);
+</script>
+</body>
+</html>

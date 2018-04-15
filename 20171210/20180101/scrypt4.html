@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    var obj = {
+//        name: 'Stol'
+//    };
+//var newObj = {
+//    name: 'Synduk',
+//    test: function () {
+//        console.log('test');
+//    }
+//};
+//    var Foo = function () {
+//        this.name = 'foo';
+//    };
+//    var boo = new Foo();
+//
+//    Foo.prototype = newObj;
+//
+//    var boo2 = new Foo();
+//    var boo3 = new Foo();
+//    console.log( boo3 );
+//    console.log(boo);
+
+//    console.log(boo.__proto__ === Foo.prototype);
+
+    var animal = {
+        canRun: true
+    };
+    var Wolf = function () {
+        this.name = 'wwolf';
+    };
+    var Grey = function () {
+        this.color = 'grey';
+    };
+    var Black = function () {
+        this.color = 'black';
+    };
+    var Chicken = function () {
+        this.name = 'Chicken';
+    };
+
+    Wolf.prototype = animal;
+Chicken.prototype = animal;
+//Chicken.prototype.Kukareku = function () {
+//  console.log('kykyrake');
+//};
+    var wolfy = new Wolf();
+    var chicken = new Chicken();
+
+    Grey.prototype = wolfy;
+    Black.prototype = wolfy;
+
+    var volfyGrey = new Grey();
+    var volfyBlack = new Black();
+//    console.log(wolfy);
+//console.log(volfyGrey);
+//console.log(volfyBlack);
+//console.log(chicken);
+
+
+    console.log(volfyGrey);
+    var protoOfWolfyGrey = Object.getPrototypeOf(volfyGrey);
+    console.log( protoOfWolfyGrey.name );
+    protoOfWolfyGrey.name = 'nOwOlf';
+    console.log( protoOfWolfyGrey.name );
+
+//    console.log(volfyGrey.hasOwnProperty('name'));//перевірка чи свойство саме цього об'єкта
+//    console.log(volfyGrey.hasOwnProperty('color'));
+
+
+    for (var key in volfyGrey) {
+        if (!volfyGrey.hasOwnProperty(key)) continue;  //якщо це не його власне свойство то пропустити (поверне тру або фолс)
+        console.log(key + '=' + volfyGrey[key] ); //color=grey   name=nOwOlf   canRun=true
+    }
+
+    var TestFunc = function () {
+        this.testProp = 'test';
+    };
+
+    var testObj = {
+        constructor: 'podmenuy konstruktor'
+    };
+
+    TestFunc.prototype = testObj;
+
+//console.log(TestFunc.prototype);
+//console.log(TestFunc.prototype.constructor === TestFunc);//не використовувати це свойство
+
+    //5 Object.create();
+
+    var kolf = { canRun: true};
+    var dog = Object.create(kolf);
+    console.log(dog);
+
+    function inherit(proto) {
+        function F() {};
+        F.prototype = proto;
+        return new F;
+    };
+
+    var dog2 = inherit(kolf);
+
+    console.log (dog2.canRun );
+</script>
+</body>
+</html>

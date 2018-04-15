@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet"
+          href="node_modules/bootstrap-tokenfield/dist/css/bootstrap-tokenfield.css">
+    <link rel="stylesheet" href="node_modules/inputmask/css/inputmask.css">
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.css">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="page-header">Multistep form</h1>
+
+            <form action="#" id="form_valid">
+               <div class="Step Step-1" data-bind="visible: isFirstStep">
+                   <div class="form-group">
+                       <label for="email" class="control-label">Email</label>
+                       <input type="email" name="email" id="email" class="form-control"
+                              placeholder="Enter your email" data-bind="textInput: user.email">
+                   </div>
+                   <div class="form-group">
+                       <label for="password" class="control-label">Password</label>
+                       <input type="password" name="password" id="password" class="form-control"
+                              placeholder="Enter your password" data-bind="textInput: user.password">
+                   </div>
+                   <div class="form-group">
+                       <label for="confirm" class="control-label">confirm</label>
+                       <input type="password" name="confirm" id="confirm" class="form-control"
+                              placeholder="Enter your confirm" data-bind="textInput: user.confirm">
+                   </div>
+                   <div class="form-group clearfix disabled">
+                       <button class="btn btn-primary pull-right" data-bind="click: nextStep">
+                           Next
+                       </button>
+                   </div>
+               </div>
+                <div class="Step Step-2" data-bind="visible: isSecondStep">
+                    <div class="form-group">
+                        <label for="fname" class="control-label">full name</label>
+                        <input type="text" name="fname" id="fname" class="form-control"
+                               placeholder="Enter your Full name"  data-bind="textInput: user.fname">
+                    </div>
+                    <div class="form-group">
+                        <label for="bday" class="control-label">Birth day</label>
+                        <input type="text" name="bday" id="bday" class="form-control"
+                               placeholder="Enter your birthday" data-bind="textInput: user.bday">
+                    </div>
+                    <div class="form-group">
+                        <label for="hobbies" class="control-label">Hobbies</label>
+                        <input type="text" name="hobbies" id="hobbies" class="form-control"
+                               placeholder="Enter your hobbies" data-bind="textInput: user.hobbies">
+                    </div>
+                    <div class="form-group clearfix">
+                        <button class="btn btn-primary pull-right" data-bind="click: nextStep">
+                            Next
+                        </button>
+                        <button class="btn pull-right" data-bind="click: prevStep">
+                            Prev
+                        </button>
+                    </div>
+                </div>
+                <div class="Step Step-3" data-bind="visible: isThirdStep">
+                    <div class="form-group">
+                        <label for="addr" class="control-label">Address</label>
+                        <input type="text" name="addr" id="addr" class="form-control"
+                               placeholder="Enter your address" data-bind="textInput: user.addr">
+                    </div>
+                    <div class="form-group">
+                        <label for="country" class="control-label">Country</label>
+                        <select
+                                name="country"
+                                id="country"
+                        data-bind="options: countries,
+                        optionsText: 'name',
+                        optionsValue: 'id',
+                        value: user.country,
+                        optionsCaption: '--Choose your country--'" class="form-control">
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="number" class="control-label">Phone number</label>
+                        <input type="text" name="number" id="number" class="form-control"
+                               placeholder="Enter your phone number" data-bind="textInput: user.phone">
+                    </div>
+                    <div class="form-group clearfix">
+                        <button class="btn btn-success pull-right" data-bind="click: nextStep">
+                            Finish
+                        </button>
+                        <button class="btn btn-danger pull-right" data-bind="click: prevStep">
+                            Prev
+                        </button>
+                    </div>
+                </div>
+                <div class="Step Step-4" data-bind="visible: isDone">
+                    <div class="well well-lg">
+                        <h2>Youre done</h2>
+
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-success"><strong>Label:
+                                </strong>Lorem ipsum.</li>
+                                <li class="list-group-item list-group-item-success"><strong>Label:
+                                </strong>Lorem ipsum.</li>
+                                <li class="list-group-item list-group-item-success"><strong>Label:
+                                </strong>Lorem ipsum.</li>
+                                <li class="list-group-item list-group-item-success"><strong>Label:
+                                </strong>Lorem ipsum.</li>
+                            </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="node_modules/requirejs/require.js" data-main="/js/main"></script>
+
+</body>
+</html>

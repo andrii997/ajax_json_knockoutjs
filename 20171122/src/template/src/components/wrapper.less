@@ -1,0 +1,26 @@
+@footer-height: 300px;
+@logo-width: 200px;
+.Wrapper {
+min-height: 100%;
+margin-bottom: -@footer-height;
+padding-bottom: @footer-height;
+
+&-header {
+height: 100px;
+}
+&-logo {
+width: @logo-width;
+float: left;
+backgtound: green;
+}
+&-menu {
+margin-left: @logo-width;
+height: 100%;
+backgtound: red;
+}
+&-sidebar {}
+&-content {}
+&-footer {
+height: @footer-height;
+}
+}

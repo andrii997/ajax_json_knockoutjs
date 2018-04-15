@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+
+<p>First name: <span data-bind="text: firstName"></span></p>
+    <p>Last name: <span data-bind="text: lastName"></span></p>
+
+<p><input type="text" data-bind="value: firstName"></p>
+<p><input type="text" data-bind="value: lastName"></p>
+
+<script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
